@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vista de Archivos </ion-title>
+    <ion-buttons slot="end" >
+      <ion-button (click)="send()">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let preview of previews">
+    <ion-icon slot="start" name="{{getIcon(preview.type)}}" color="{{getIconColor(preview.type)}}"></ion-icon>
+    <ion-label>
+        <h2>{{preview.name}}</h2>
+        <p>{{bytesToSize(preview.size)}}</p>
+      </ion-label>
+  </ion-item>
+</ion-content>

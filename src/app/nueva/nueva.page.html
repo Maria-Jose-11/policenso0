@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ionic Firebase Image/File Upload Progress Bar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!isImgUploading && !isImgUploaded">
+    <ion-card-header>
+      <ion-card-title>Select File</ion-card-title>
+    </ion-card-header>
+
+    <ion-button color="danger">
+      <input type="file" class="upload" (change)="fileUpload($event.target.files)" />
+    </ion-button>
+  </ion-card>
+
+  <ion-card *ngIf="isImgUploading && !isImgUploaded">
+    <ion-card-header>
+      <ion-card-title>Files selected: <b>{{ FileName }}</b></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="progressNum | async as percentage">
+        Progress: {{ percentage | number }}%
+        <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
+      </div>
+      <div *ngIf="progressSnapshot | async as pSnapshot">
+        Image size: {{ pSnapshot.totalBytes}} Transfered:
+        {{ pSnapshot.bytesTransferred }}
+        <div *ngIf="progressSnapshot && pSnapshot.bytesTransferred != pSnapshot.totalBytes">
+          <ion-button color="danger" fill="outline" size="small" (click)="ngFireUploadTask.cancel()">Cancel</ion-button>
+          <ion-button color="secondary" fill="outline" size="small" (click)="ngFireUploadTask.pause()">Pause
+          </ion-button>
+          <ion-button color="dark" fill="outline" size="small" (click)="ngFireUploadTask.resume()" class="button">Resume
+          </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!isImgUploading && isImgUploaded">
+    <ion-card-header>
+      <ion-card-title>
+        <b>{{ FileName }}</b> Uploaded
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="fileUploadedPath | async as fileUrl">
+        <img [src]="fileUrl" />
+        <a [href]="fileUrl" rel="nofollow" target="_blank">Download</a>
+      </div>
+      File Size: {{ FileSize }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Uploaded Files Collection
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card *ngFor="let img of files | async">
+      <ion-card-header>
+        <ion-card-title>
+          {{ img.name }}
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <img [src]="img.filepath" />
+        <a [href]="img.filepath" rel="nofollow" target="_blank">Download</a>
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
+</ion-content>

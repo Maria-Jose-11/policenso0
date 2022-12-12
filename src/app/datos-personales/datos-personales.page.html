@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>INFORMACIÓN
+      <ion-icon  name="chatbubbles"></ion-icon>
+    </ion-title>
+    <ion-buttons slot="end">Volver
+      <ion-button fill="clear" (click)="regresar()">
+        <ion-icon name="log-out" slot="icon-only" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <fieldset>
+    <legend><b>DATOS PERSONALES:</b></legend>
+    <ion-item style="width: 200px;">
+      <ion-label position="floating"><b>Nombre</b></ion-label>
+      <ion-input type="text" [(ngModel)]="nombre" name="nombre"  required></ion-input>
+    </ion-item>
+    <ion-item style="width: 200px;">
+      <ion-label position="floating"><b>Apellido</b></ion-label>
+      <ion-input type="text" [(ngModel)]="apellido" name="apellido" required></ion-input>
+    </ion-item>
+    <ion-item style="width: 200px;">
+      <ion-label position="floating"><b>Cédula</b></ion-label>
+      <ion-input type="text" [(ngModel)]="cedula" name="cedula" required></ion-input>
+    </ion-item>
+    <ion-item style="width: 200px;">
+      <ion-label position="floating"><b>¿No. Familiares?</b></ion-label>
+      <ion-input type="number" [(ngModel)]="numfamilia" name="numfamilia" pattern="[0-9]+" required></ion-input>
+    </ion-item>
+    <br/>
+  </fieldset>
+  <br>
+  <br>
+  <fieldset>
+    <legend>DATOS UBICACIÓN</legend>
+    <ion-card>
+      <ion-card-header>
+        <ion-button size="small" (click)="getCurrentCoordinate()">
+          Generar ubicación
+        </ion-button>
+      </ion-card-header>
+      <ion-card-content>
+        Latitud: {{coordinate?.latitude }}
+      </ion-card-content>
+      <ion-card-content>
+        Longitud:{{ coordinate?.longitude }}
+      </ion-card-content>
+    </ion-card>
+  </fieldset>
+  <ion-button color="primary"  (click)="enviarDatos()" style="width: 150px;">
+    ENVIAR
+  </ion-button>
+</ion-content>

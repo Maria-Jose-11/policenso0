@@ -1,0 +1,10 @@
+{
+  "name": "examen",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

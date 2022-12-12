@@ -1,0 +1,31 @@
+
+#message {
+  padding: 10px !important;
+  border-radius: 10px !important;
+  margin-bottom: 4px !important;
+  white-space: pre-wrap;
+}
+
+#my-message {
+  background: var(--ion-color-tertiary);
+  color: #fff;
+}
+
+#other-message{
+  background: var(--ion-color-primary);
+  color: #fff;
+}
+
+#time {
+  background: #dfdfdf;
+  float: right;
+  font-size: small;
+}
+
+@font-face {
+  font-family: 'Quicksand', sans-serif;
+    src: url('../../assets/fonts/nunito.woff2') format('woff2');
+  }
+  *{
+    font-family: 'Quicksand', sans-serif;
+  }

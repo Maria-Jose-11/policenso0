@@ -1,0 +1,40 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Capacitor Geolocation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button size="small" (click)="requestPermissions()">
+    Geolocation Permissions
+  </ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-button size="small" (click)="getCurrentCoordinate()">
+        Current Coordinate
+      </ion-button>
+    </ion-card-header>
+    <ion-card-content>
+      Latitud: {{coordinate?.latitude }}
+      Longitud:{{ coordinate?.longitude }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-button size="small" (click)="watchPosition()">
+        Watch Position
+      </ion-button>
+    </ion-card-header>
+    <ion-card-content>
+      Latitud: {{watchCoordinate?.latitude }}
+      Longitud: {{ watchCoordinate?.longitude }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button size="small" (click)="clearWatch()">Clear Watch</ion-button>
+</ion-content>
