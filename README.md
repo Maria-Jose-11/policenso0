@@ -18,7 +18,7 @@ A través del plugin de Geolocalización, podremos obtener diferentes datos prov
   - Latitud
   - Longitud
   
-- ** & FOTO DE DOMICILIO**   
+- **& FOTO DE DOMICILIO**   
 
 
 Nota: Los datos son almacenados en una base de datos de Firebase
