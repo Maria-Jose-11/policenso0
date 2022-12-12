@@ -15,10 +15,10 @@ Los datos que se van a almacenar son:
 - **DATOS DE GEOLOCALIZACIÓN**
 
 A través del plugin de Geolocalización, podremos obtener diferentes datos provenientes de la ubicación. En este caso obtendremos los siguientes datos: 
--- Latitud
--  - Longitud
+  - Latitud
+  - Longitud
   
-- **FOTO DE DOMICILIO**   
+- ** & FOTO DE DOMICILIO**   
 
 
 Nota: Los datos son almacenados en una base de datos de Firebase
