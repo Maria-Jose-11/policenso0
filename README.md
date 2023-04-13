@@ -1,5 +1,6 @@
 # POLICENSO
 
+![image](https://user-images.githubusercontent.com/74751902/221698892-61072268-3e51-48bb-be19-fbad5d654aa4.png)
 
 **DESCRIPCIÓN DE PROYECTO**
 
